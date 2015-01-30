@@ -20,7 +20,7 @@ int main (int argc, char *argv[]) {
 
 	for (int i = 0; i < FRAMES; i++) {
 		pid_t mplayer = fork();
-		if (mplayer > 0) {
+		if (mplayer == 0) {
 			execvp("mplayer", argv_mplayer);	
 			return -1;
 		}
@@ -37,6 +37,6 @@ int main (int argc, char *argv[]) {
 		sleep(2);
 	}
 
-
+	return 0;
 
 }
